@@ -2,6 +2,8 @@ package br.com.alura.musiclist.principal;
 
 import br.com.alura.musiclist.model.Artista;
 import br.com.alura.musiclist.model.Musica;
+import br.com.alura.musiclist.model.TipoArtista;
+import br.com.alura.musiclist.repository.ArtistaRepository;
 import br.com.alura.musiclist.repository.MusicaRepository;
 
 import java.util.Scanner;
@@ -10,6 +12,11 @@ public class Principal {
 
     Scanner leitura = new Scanner(System.in);
     private MusicaRepository repositorioMusic;
+    private ArtistaRepository repositorioArtist;
+
+    public Principal(ArtistaRepository repositorioArtist) {
+        this.repositorioArtist = repositorioArtist;
+    }
 
     public void exibeMenu(){
 
@@ -28,7 +35,7 @@ public class Principal {
                     0 - Sair
                     """;
 
-            System.out.println(menu);
+            System.out.println("\n" + menu);
             opcao = leitura.nextInt();
             leitura.nextLine();
 
@@ -59,6 +66,21 @@ public class Principal {
     }
 
     private void cadastrarArtistas() {
+        System.out.println("Digite o nome do artista:");
+        var nomeCantor = leitura.nextLine();
+        System.out.println("Escolha o tipo do artista (solo/dupla/banda): ");
+        var tipoStr = leitura.nextLine();
+
+        try {
+            TipoArtista tipo = TipoArtista.valueOf(tipoStr.toUpperCase());
+
+            Artista artista = new Artista(nomeCantor, tipo);
+            repositorioArtist.save(artista);
+            System.out.println(artista.toString());
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Tipo inválido. Use: SOLO, DUPLA ou BANDA.");
+        }
 
     }
 
