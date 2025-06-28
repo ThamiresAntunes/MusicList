@@ -1,10 +1,15 @@
 package br.com.alura.musiclist.principal;
 
+import br.com.alura.musiclist.model.Artista;
+import br.com.alura.musiclist.model.Musica;
+import br.com.alura.musiclist.repository.MusicaRepository;
+
 import java.util.Scanner;
 
 public class Principal {
 
     Scanner leitura = new Scanner(System.in);
+    private MusicaRepository repositorioMusic;
 
     public void exibeMenu(){
 
@@ -54,9 +59,11 @@ public class Principal {
     }
 
     private void cadastrarArtistas() {
+
     }
 
     private void cadastrarMusicas() {
+
     }
 
     private void listarMusicas() {
