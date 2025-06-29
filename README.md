@@ -1,4 +1,4 @@
-🎵 MusicList - Gerenciador de Músicas e Artistas
+## 🎵 MusicList - Gerenciador de Músicas e Artistas
 
 📌 Descrição
 
