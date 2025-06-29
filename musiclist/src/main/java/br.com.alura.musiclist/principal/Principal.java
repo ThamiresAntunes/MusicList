@@ -27,7 +27,6 @@ public class Principal {
     }
 
     public void exibeMenu(){
-
         var opcao = -1;
 
         while (opcao != 0) {
@@ -39,7 +38,8 @@ public class Principal {
                     3- Listar músicas
                     4- Listar artistas
                     5- Buscar músicas por artistas
-                    6- Pesquisar dados sobre um artista
+                    6- Deletar artista
+                    7- Pesquisar dados sobre um artista
                    
                     0 - Sair
                     """;
