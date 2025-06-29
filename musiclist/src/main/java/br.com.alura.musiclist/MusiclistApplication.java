@@ -1,25 +1,23 @@
 package br.com.alura.musiclist;
 
 import br.com.alura.musiclist.principal.Principal;
-import br.com.alura.musiclist.repository.ArtistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//classe gerenciada pelo spring
 @SpringBootApplication
 public class MusiclistApplication implements CommandLineRunner {
-
     @Autowired
-    private ArtistaRepository repositorioArtist;
+    private Principal principal;
 
     public static void main(String[] args) {
-		SpringApplication.run(MusiclistApplication.class, args);
-	}
+        SpringApplication.run(MusiclistApplication.class, args);
+    }
 
     @Override
-    public void run(String... args) throws Exception {
-        Principal principal = new Principal(repositorioArtist);
+    public void run(String... args) {
         principal.exibeMenu();
     }
 }

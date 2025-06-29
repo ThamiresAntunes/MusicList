@@ -62,8 +62,13 @@ public class Artista {
 
     @Override
     public String toString() {
+        String titulosMusicas = musicas.stream()
+                .map(Musica::getTitulo)
+                .toList()
+                .toString();
+
         return "Artista ='" + nome + '\'' +
                 ", tipo=" + tipo +
-                ", musicas=" + musicas;
+                ", musicas=" + titulosMusicas;
     }
 }
